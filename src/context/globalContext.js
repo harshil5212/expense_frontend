@@ -25,7 +25,7 @@ export const GlobalProvider = ({children}) => {
 
     //calculate incomes
     const addIncome = async (income) => {
-        const response = await axios.post(`${BASE_URL_V1}add-income`, income, getAuthHeader())
+        await axios.post(`${BASE_URL_V1}add-income`, income, getAuthHeader())
             .catch((err) =>{
                 setError(err.response.data.message)
             })
@@ -39,7 +39,7 @@ export const GlobalProvider = ({children}) => {
     }
 
     const deleteIncome = async (id) => {
-        const res  = await axios.delete(`${BASE_URL_V1}delete-income/${id}`, getAuthHeader())
+        await axios.delete(`${BASE_URL_V1}delete-income/${id}`, getAuthHeader())
         getIncomes()
     }
 
@@ -53,9 +53,9 @@ export const GlobalProvider = ({children}) => {
     }
 
 
-    //calculate incomes
+    //calculate expenses
     const addExpense = async (income) => {
-        const response = await axios.post(`${BASE_URL_V1}add-expense`, income, getAuthHeader())
+        await axios.post(`${BASE_URL_V1}add-expense`, income, getAuthHeader())
             .catch((err) =>{
                 setError(err.response.data.message)
             })
@@ -69,7 +69,7 @@ export const GlobalProvider = ({children}) => {
     }
 
     const deleteExpense = async (id) => {
-        const res  = await axios.delete(`${BASE_URL_V1}delete-expense/${id}`, getAuthHeader())
+        await axios.delete(`${BASE_URL_V1}delete-expense/${id}`, getAuthHeader())
         getExpenses()
     }
 
